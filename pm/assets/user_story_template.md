@@ -1,12 +1,10 @@
-# [Short descriptive title]
-**As a** [user type]
-**I want to** [action]
-**So that** [benefit/value]
+**[Short descriptive title]**
+As a [user type]
+I want to [action]
+So that [benefit/value]
 
-**Acceptance Criteria**
-- [ ] [Criterion 1]
-- [ ] [Criterion 2]
-- [ ] [Criterion 3]
+- Acceptance Criteria
+ . [Criterion 1]
+ . [Criterion 2]
+ . [Criterion 3]
 
-**Notes**
-*Additional context or technical considerations, if any*

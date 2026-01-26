@@ -15,8 +15,8 @@ Responsible for implementing features based on technical designs (EDD) and requi
 
 ## Input Sources
 
--   **EDD**: `$project_root/docs/edd.md` (Primary technical reference).
--   **PRD**: `$project_root/docs/prd.md` (Requirement background).
+-   **EDD**: Primary technical reference.
+-   **PRD**: Requirement background.
 -   **User Story**: Specific feature requirements.
 
 ## Workflow
@@ -28,10 +28,11 @@ Responsible for implementing features based on technical designs (EDD) and requi
 
 ### 2. Pre-implementation Assessment
 -   **Design Check**: Evaluate the EDD for irrationalities, technical limitations, or missing decisions.
--   **Blocked Status**: If issues are found, **stop immediately**. Report the problem, impact, and potential solutions to the user. Proceed only after instructions.
+-   **Architecture Suggestion**: Regarding the current EDD design, are there any better suggestions for the code architecture?
+-   **Blocked Status**: If there are any suggestions or questions in the previous two items, discuss them with the user. Proceed only after the design is finalized.
 
 ### 3. Implementation & Testing
--   **Standards**: Follow `references/general_best_practices.md` and language-specific specs in `references/` (e.g., `references/rust.md`).
+-   **Standards**: Follow `references/general_best_practices.md` and language-specific specs in `references/` (e.g., `references/rust.md`, `references/go.md`).
 -   **Priority**: Follow an incremental MVP approach: 1. Infrastructure (Models/Interfaces) -> 2. Core Logic -> 3. Secondary Features.
 -   **Unit Testing**: Write tests for all new functions covering normal paths, edge cases, and error handling. Ensure all tests pass before completion.
 
@@ -41,11 +42,11 @@ Responsible for implementing features based on technical designs (EDD) and requi
 
 ## Guidelines & Constraints
 
--   **Code Quality**: Source code and comments must be in **English**. Follow existing styles and `.editorconfig`.
+-   **Coding Style**: Source code and comments must be in **English**. Follow and `.editorconfig`.
 -   **Scope Limitation**:
     -   Do not modify PRD/EDD or architectural designs; report needs to the user.
     -   Focus strictly on requirements; avoid feature creep.
-    -   Responsible for **Unit Tests only**; other tests (e.g., Integration/E2E tests) are handled by QA.
+    -   Responsible for **Unit Tests only**; other black box tests (e.g., Integration, E2E tests etc.) are handled by QA.
 -   **Collaboration**:
     -   **Architect**: Provides the EDD for SDE to implement.
     -   **PM**: Provides the PRD and User Stories.

@@ -1,35 +1,35 @@
 ---
 name: committer
-description: 建立 git commit，使用 markdown 格式的簡潔 commit message。當使用者想要 commit 變更時使用。
+description: Create git commits with concise markdown-formatted commit messages. Use when the user wants to commit changes.
 user-invocable: true
 disable-model-invocation: false
 allowed-tools: Bash
 ---
 
-# Commit 變更
+# Commit Changes
 
-你正在協助使用者根據其特定需求建立 git commit。
+You are assisting the user in creating git commits based on their specific needs.
 
-## 步驟
+## Steps
 
-1. **檢查目前狀態**：平行執行這些 command：
-   - `git status` 查看所有變更（永遠不要使用 -uall flag）
-   - `git diff` 查看已 staged 和未 staged 的變更
-   - `git log -5 --oneline` 了解 commit message 風格
+1. **Check current status**: Run these commands in parallel:
+   - `git status` to see all changes (never use the `-uall` flag)
+   - `git diff` to see staged and unstaged changes
+   - `git log -5 --oneline` to understand the commit message style
 
-2. **分析變更**：檢閱所有變更並決定哪些 file 應該被 commit
+2. **Analyze changes**: Review all changes and decide which files should be committed.
 
-3. **建立 commit message**：
-   - 必須使用 markdown 格式（用 `##` 作為標題）
-   - 必須盡可能簡潔（最多 1-2 句）
-   - 專注於變更了什麼（WHAT）以及為什麼（WHY），而非如何（HOW）
-   - 遵循 git log 中現有的 commit 風格
+3. **Create commit message**:
+   - Must use markdown format (use `##` as the title)
+   - Must be as concise as possible (max 1-2 sentences)
+   - Focus on WHAT changed and WHY, not HOW
+   - Follow the existing commit style in the git log
 
-4. **Stage files**：使用 `git add <specific-files>` 加入相關 file
-   - 優先使用 file name 加入特定 file
-   - 不要 commit 包含 secret 的 file（.env、credentials.json 等）
+4. **Stage files**: Use `git add <specific-files>` to include relevant files.
+   - Prefer using file names to add specific files.
+   - Do not commit files containing secrets (.env, credentials.json, etc.).
 
-5. **建立 commit**：使用 HEREDOC 格式並加上 Co-Authored-By 行：
+5. **Create commit**: Use HEREDOC format and include the Co-Authored-By line:
    ```bash
    git commit -m "$(cat <<'EOF'
    ## Your commit title
@@ -41,25 +41,25 @@ allowed-tools: Bash
    )"
    ```
 
-6. **驗證**：commit 後執行 `git status` 確認成功
+6. **Verification**: After committing, run `git status` to confirm success.
 
-## 重要規則
+## Important Rules
 
-- commit message 永遠使用英文撰寫
-- 加入新 file 前永遠先詢問確認
-- 永遠建立新的 commit（除非明確要求，否則不要使用 --amend）
-- 如果 pre-commit hook 失敗，修正問題後建立新的 commit（不要 amend）
-- 除非明確要求，否則永遠不要跳過 hook（--no-verify）
-- 除非使用者明確要求，否則不要 push
-- 如果沒有變更，不要建立空的 commit
-- commit 前，向使用者展示 commit message 和已 staged 的 file，詢問確認後再 commit
+- Always write commit messages in English.
+- Always ask for confirmation before staging new files.
+- Always create a new commit (do not use `--amend` unless explicitly requested).
+- If a pre-commit hook fails, fix the issue and create a new commit (do not amend).
+- Never skip hooks (`--no-verify`) unless explicitly requested.
+- Never push unless explicitly requested by the user.
+- Do not create empty commits if there are no changes.
+- Before committing, show the commit message and staged files to the user and ask for confirmation.
 
-## Commit Message 格式範例
+## Commit Message Format Example
 
 ```
 ## Add user authentication
 - Implemented JWT-based authentication with refresh tokens.
-- Implemented cookie base authentication.
+- Implemented cookie-based authentication.
 
 Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 ```

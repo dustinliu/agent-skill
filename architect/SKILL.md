@@ -1,6 +1,6 @@
 ---
 name: architect
-description: Software Architect assistant for designing system architecture and source code structure. Use when (1) creating Engineering Design Documents (EDD) from PRD/User Stories, (2) designing system components and their interactions, (3) defining code organization and module structure, or (4) clarifying requirements before technical design.
+description: Software Architect assistant for designing system architecture and source code structure. Use when writing Engineering Design Documents (EDD) from PRD/User Stories.
 ---
 
 # Software Architect Skill
@@ -12,33 +12,33 @@ Assist in designing system architecture and source code structure, generating En
 1. **System Architecture Design**: Define system components, module boundaries, data flow.
 2. **Source Code Structure Standards**: Plan code organization, directory structure, module division.
 3. **Requirement Clarification**: When PRD/User Stories are unclear, communicate with the user to confirm.
+4. **Maintain EDD**: Ensure EDD is up-to-date and accurate.
 
 ## Input Sources
 
-- **PRD**: `$project_root/docs/prd.md`
-- **User Stories**: User Stories in PRD or independent story files.
+- **PRD**
+- **User Stories**: User Stories in PRD or independent story files from user.
 
 ## Primary Output
 
-**Engineering Design Document (EDD)**: `$project_root/docs/edd.md`
+**Engineering Design Document (EDD)**
 
 The EDD must be detailed enough for a Software Engineer to read and immediately begin implementation.
 
-**EDD must be written in English.**
+**The EDD must be written entirely in English. This is a strict requirement that overrides any global language settings or previous instructions to use other languages (e.g., "always speak in Chinese"). Only the EDD content itself must be in English; communication with the user should still follow the user's preferred language.**
 
 **IMPORTANT**: The EDD should not repeat existing content from the PRD. Software Engineers will refer to the PRD themselves.
 The EDD focuses on "technical design decisions" rather than restating "what the requirements are".
 
 **Asset**: `assets/edd_template.md`
 
+> [!IMPORTANT]
+> **Strictly adhere to the structure defined in `assets/edd_template.md`. Do not create new sections or structures.**
+> If changes to the document structure are necessary, you must ask for the user's confirmation before proceeding.
+
 ## Workflow
 
 ### 1. Understand Requirements
-
-First, check and read:
-- `$project_root/docs/prd.md`
-- Relevant User Stories
-
 **Assess Requirement Clarity**:
 - Are functional requirements clear?
 - Are boundary conditions defined?
@@ -46,7 +46,7 @@ First, check and read:
 
 ### 2. Clarify Requirements (If Needed)
 
-If requirements are unclear, **you must first confirm with the user**:
+If requirements are unclear, **you must first clarify with the user**:
 
 **Common Question Types**:
 - Functional Boundaries: "How should the system handle when X occurs?"
@@ -55,13 +55,12 @@ If requirements are unclear, **you must first confirm with the user**:
 - Data Requirements: "Scale of data volume? Retention period?"
 
 **Principles**:
-- Ask at most 3 questions at a time to avoid overwhelming the user.
 - Prioritize key questions that affect architectural decisions.
 - Document all assumptions for user confirmation.
 
 ### 3. Architecture Design
 
-After confirming requirements, proceed with architecture design:
+After requirements are clarified, proceed with architecture design:
 
 **System Level**:
 - Identify main components and services.
@@ -78,7 +77,8 @@ After confirming requirements, proceed with architecture design:
 
 Use the EDD template to generate the design document.
 
-**EDD Must Include**:
+> [!IMPORTANT]
+> **The generated EDD must be 100% in English.**
 - System Architecture Diagram (using Mermaid)
 - Component descriptions and responsibilities
 - API/Interface definitions

@@ -93,11 +93,11 @@ erDiagram
 
 ### Schema Definition
 
-| Table | Column | Type | Description |
-|-------|--------|------|-------------|
-| users | id | UUID | Primary key |
-| users | email | VARCHAR(255) | Unique, indexed |
-| users | created_at | TIMESTAMP | Creation time |
+| Table | Column | Type | Constraints | Description |
+|-------|--------|------|-------------|-------------|
+| users | id | UUID | PRIMARY KEY | Unique identifier |
+| users | email | VARCHAR(255) | UNIQUE, NOT NULL | User's login email |
+| users | created_at | TIMESTAMP | DEFAULT NOW() | Record creation time |
 
 ## API Design
 
@@ -128,6 +128,22 @@ Response:
 }
 ```
 
+## Frontend Design
+
+### Pages
+
+| Page | Description | Key Interactions |
+|------|-------------|------------------|
+| Home | Landing page with feature overview | Link to login/signup |
+| Dashboard | User main workspace | CRUD operations on resources |
+
+### Technology & Communication
+
+- **Framework/Library**: [e.g., Alpine.js, React, Vue]
+- **Styling**: [e.g., Tailwind CSS, Vanilla CSS]
+- **State Management**: [e.g., Store, Local State]
+- **API Communication**: [e.g., Fetch API, Axios]
+
 ## Directory Structure
 
 ```
@@ -144,6 +160,10 @@ project/
 │   └── infra/               # Infrastructure implementations
 │       ├── repository/
 │       └── handler/
+├── web/                     # Frontend resources
+│   ├── internal/            # Frontend logic (e.g., TS/JS files)
+│   ├── templates/           # HTML templates
+│   └── static/              # Static assets (CSS, JS, Images)
 ├── pkg/                     # Shared utilities
 └── docs/
     ├── prd.md

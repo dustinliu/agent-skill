@@ -9,8 +9,28 @@
 ## Target Audience
 *Who are we building this for?*
 
+## User Stories
+As a [persona]
+I want to [action]
+So that [outcome/benefit]
+
+Acceptance Criteria:
+- Criterion 1
+- Criterion 2
+- Criterion 3
+---
+As a [persona]
+I want to [action]
+So that [outcome/benefit]
+
+Acceptance Criteria:
+- Criterion 1
+- Criterion 2
+- Criterion 3
+
+
 ## Functional Requirements
-- **[FR-001] [Requirement Name]**
+- **[FR-001] (P0) [Requirement Name]**
   - **Priority**: [High/Medium/Low]
   - **Description**: [What the system shall do]
   - **Rationale**: [why this is necessary]
@@ -18,7 +38,7 @@
     - [Criterion 1]
     - [Criterion 2]
 
-- **[FR-002] [Requirement Name]**
+- **[FR-002] (P2) [Requirement Name]**
   - **Priority**: [High/Medium/Low]
   - **Description**: [What the system shall do]
   - **Rationale**: [why this is necessary]
