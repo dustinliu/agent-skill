@@ -18,7 +18,13 @@ Example:
 import sys
 import zipfile
 from pathlib import Path
-from quick_validate import validate_skill
+
+# Add scripts directory to path for uv run compatibility
+scripts_dir = Path(__file__).parent
+if str(scripts_dir) not in sys.path:
+    sys.path.insert(0, str(scripts_dir))
+
+from quick_validate import validate_skill  # noqa: E402
 
 
 def package_skill(skill_path, output_dir=None):
