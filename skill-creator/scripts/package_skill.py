@@ -8,11 +8,11 @@
 Skill Packager - Creates a distributable .skill file of a skill folder
 
 Usage:
-    scripts/package_skill.py <path/to/skill-folder> [output-directory]
+    uv run scripts/package_skill.py <path/to/skill-folder> [output-directory]
 
 Example:
-    scripts/package_skill.py skills/public/my-skill
-    scripts/package_skill.py skills/public/my-skill ./dist
+    uv run scripts/package_skill.py skills/public/my-skill
+    uv run scripts/package_skill.py skills/public/my-skill ./dist
 """
 
 import sys
@@ -95,10 +95,10 @@ def package_skill(skill_path, output_dir=None):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: scripts/package_skill.py <path/to/skill-folder> [output-directory]")
+        print("Usage: uv run scripts/package_skill.py <path/to/skill-folder> [output-directory]")
         print("\nExample:")
-        print("  scripts/package_skill.py skills/public/my-skill")
-        print("  scripts/package_skill.py skills/public/my-skill ./dist")
+        print("  uv run scripts/package_skill.py skills/public/my-skill")
+        print("  uv run scripts/package_skill.py skills/public/my-skill ./dist")
         sys.exit(1)
 
     skill_path = sys.argv[1]
