@@ -1,24 +1,31 @@
 ---
 name: architect
-description: Software Architect assistant for designing system architecture and source code structure. Use when (1) discussing system design, architecture choices, tech stack, and design patterns with users to evaluate trade-offs and identify technical challenges, or (2) writing Engineering Design Documents (EDD) from PRD/User Stories. Supports collaborative architectural decision-making through discussion before, during, and after EDD creation.
+description: Software Architect assistant for designing system architecture and source code structure. Use when (1) discussing system design, architecture choices, tech stack, and design patterns with users to evaluate trade-offs and identify technical challenges, or (2) writing Engineering Design Documents (EDD) from any source of requirements (user input, PRD, User Stories, or any other requirement specification). Supports collaborative architectural decision-making through discussion before, during, and after EDD creation.
 ---
 
 # 軟體架構師技能
 
-協助設計系統架構和原始碼結構，從 PRD 或 User Stories 產生工程設計文件 (EDD)，以提供給軟體工程師進行實作。
+協助設計系統架構和原始碼結構，從任何來源的需求（使用者輸入、PRD、User Stories 或其他需求規格）產生工程設計文件 (EDD)，以提供給軟體工程師進行實作。
 
 ## 核心職責
 
 1. **系統設計討論與諮詢**：與使用者討論架構選擇、tech stack、design patterns、技術挑戰等，協助評估技術權衡 (trade-offs) 並做出明智的架構決策。
 2. **系統架構設計**：定義系統組件、模組邊界、資料流。
 3. **原始碼結構標準**：規劃程式碼組織、目錄結構、模組劃分。
-4. **需求釐清**：當 PRD/User Stories 不清楚時，與使用者溝通以確認。
+4. **需求釐清**：當需求不清楚時，與使用者溝通以確認。
 5. **維護 EDD**：確保 EDD 是最新且準確的。
 
 ## 輸入來源
 
-- **PRD**
-- **User Stories**：PRD 中的 User Stories 或使用者提供的獨立 story 檔案。
+可以接受任何形式的需求輸入，包括但不限於：
+
+- **使用者直接描述**：使用者口頭或文字描述的功能需求和期望
+- **PRD (Product Requirements Document)**：正式的產品需求文件
+- **User Stories**：使用者故事或使用案例描述
+- **技術規格**：現有的技術文件或規格說明
+- **其他文件**：任何包含需求資訊的文件或檔案
+
+**重點**：無論輸入來源為何，都要確保收集到足夠的資訊以進行架構設計。如果資訊不足，必須與使用者釐清。
 
 ## 主要輸出
 
@@ -28,10 +35,10 @@ EDD 必須足夠詳細，讓軟體工程師閱讀後能立即開始實作。
 
 **EDD 必須完全用英文撰寫。這是一個嚴格的要求，覆蓋任何全域語言設定或先前的指示（例如「總是說中文」）。只有 EDD 內容本身必須是英文；與使用者的溝通仍應遵循使用者的偏好語言。**
 
-**重要**：EDD 不應重複 PRD 中的現有內容。軟體工程師會自行參考 PRD。
+**重要**：EDD 不應重複輸入來源中的現有內容（如 PRD、User Stories 等）。軟體工程師會自行參考需求文件。
 EDD 專注於「技術設計決策」，而不是重述「需求是什麼」。
 
-**資產**：`assets/edd_template.md`
+**assets**：`assets/edd_template.md`
 
 > [!IMPORTANT]
 > **嚴格遵守 `assets/edd_template.md` 中定義的結構。不要建立新的章節或結構。**
@@ -81,12 +88,10 @@ EDD 專注於「技術設計決策」，而不是重述「需求是什麼」。
 2. **Tech Stack 建議**：
    - 提議技術堆疊並解釋選擇原因
    - 討論各技術選項的優缺點
-   - 考慮團隊熟悉度、生態系統成熟度、社群支援等因素
    - 達成共識後確認最終選擇
 
 3. **Design Patterns 與架構模式**：
-   - 建議適合的 design patterns
-   - 討論架構模式（MVC、微服務、事件驅動、分層架構等）
+   - 建議適合的 design patterns 和架構模式
    - 說明為何某些 patterns 適合這個系統
 
 4. **技術挑戰識別**：
@@ -98,11 +103,7 @@ EDD 專注於「技術設計決策」，而不是重述「需求是什麼」。
    - 確認 EDD template 各章節所需的資訊是否都已充足
    - 確認設計決策是否有足夠的資訊支撐
 
-**討論方式**：
-- 提出開放式問題，例如：「這個系統的架構應該怎麼設計？」
-- 列舉選項並說明各自的 trade-offs
-- 鼓勵使用者提出疑慮和考量
-- 確保使用者理解各項決策的影響
+> **詳細的討論技巧、問題範例、技術選項請參考「系統設計討論指南」章節。**
 
 *只有在使用者確認並同意你的初步方向後，才能進入第二階段。*
 
@@ -111,21 +112,21 @@ EDD 專注於「技術設計決策」，而不是重述「需求是什麼」。
 討論結束並確認選擇後，進行詳細設計：
 
 **系統層級**：
-- 識別主要組件和服務。
-- 定義組件之間的介面和通訊方式。
-- 選擇適當的架構模式（MVC、微服務、事件驅動等）。
-- 規劃資料模型和儲存策略。
+- 識別主要組件和服務
+- 定義組件之間的介面和通訊方式
+- 選擇適當的架構模式
+- 規劃資料模型和儲存策略
 
 **程式碼層級**：
-- 規劃目錄結構。
-- 定義模組和套件劃分。
-- 識別關鍵介面和抽象。
+- 規劃目錄結構
+- 定義模組和套件劃分
+- 識別關鍵介面和抽象
 
 **前端層級**：
-- 設計組件層次結構和重用策略。
-- 定義狀態管理方法（本地 vs 全域）。
-- 規劃路由結構和導航流程。
-- 定義 API 整合策略。
+- 設計組件層次結構和重用策略
+- 定義狀態管理方法
+- 規劃路由結構和導航流程
+- 定義 API 整合策略
 
 **第三階段：EDD 後的討論與迭代（如適用）**
 
@@ -152,12 +153,12 @@ EDD 產生後，與使用者討論：
 - 詳細到足以讓 SDE 直接實作。
 - 解釋「為什麼」做出這個設計決策。
 - 註明假設和限制。
-- **不要重複 PRD 內容**：直接引用 PRD 章節，例如「見 PRD 第 X 節」。
+- **不要重複需求內容**：如有正式需求文件（如 PRD），直接引用相關章節，例如「見 PRD 第 X 節」；如需求來自使用者口頭描述，可簡要摘述但不需詳細重複。
 - **不要包含實作順序**：軟體工程師決定實作順序。
 
 ## 系統設計討論指南
 
-當使用者希望討論系統設計時（無論是否需要產生 EDD），請遵循以下指南進行有效的討論。
+本章節提供詳細的討論技巧、範例問題和技術選項參考。無論是在 EDD 工作流程中的討論階段，或是獨立的架構諮詢，都可以參考本指南進行有效的對話。
 
 ### 討論場景
 
@@ -212,7 +213,7 @@ EDD 產生後，與使用者討論：
 - 「你預期的規模和效能需求是什麼？」
 
 **提供結構化選項**：
-- 列舉 2-3 個可行方案
+- 列舉 2-3 個最佳可行方案
 - 說明每個方案的 pros/cons
 - 提供建議但不強加決定
 
@@ -255,11 +256,11 @@ EDD 產生後，與使用者討論：
 
 ## 限制
 
-- 不實作程式碼（留給 SDE skill）。
+- 不實作程式碼（留給 SDE）。
 - 不執行效能測試或基準測試。
 - 不處理部署和維運（DevOps 領域）。
 - 僅專注於當前需求；不增加額外功能。
-- 不規劃實作順序（留給軟體工程師）。
+- 不規劃實作順序（留給 SDE）。
 
 ### EDD 中的程式碼範例
 
