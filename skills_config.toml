@@ -1,0 +1,66 @@
+# Skills Copier Configuration
+# 定義 skills 來源和目標 IDE 目錄
+
+# =============================================================================
+# Skills 定義（新格式）
+# =============================================================================
+# 只需列出 skill 名稱，script 會在 sources.paths 中自動搜尋
+
+skills = [
+    "architecture",
+    "frontend-design",
+    "software-architecture",
+    "api-patterns",
+    "database-design",
+    "test-driven-development",
+    "systematic-debugging",
+    "prompt-engineer",
+    "committer",
+]
+
+# =============================================================================
+# Skills 來源目錄
+# =============================================================================
+# 定義所有 skill 可能存在的目錄
+# Script 會在這些目錄中搜尋上面列出的 skills
+
+[sources]
+paths = [
+    "~/src/antigravity-awesome-skills/skills", # 外部 skills 資料庫
+    "./skills",                                # 本地 skills（相對於此 config 檔案）
+]
+
+
+# =============================================================================
+# IDE 目標目錄定義
+# =============================================================================
+# 每個 target 需要指定:
+# - path: IDE 的 skills 目錄位置
+# - enabled: 是否啟用此 target
+
+[targets.claude_code]
+path = "~/.claude/skills"
+enabled = true
+
+[targets.cursor]
+path = "~/.cursor/skills"
+enabled = true
+
+[targets.antigravity]
+path = "~/.gemini/antigravity/skills"
+enabled = true
+
+
+# =============================================================================
+# 使用說明
+# =============================================================================
+# 1. 修改 skills 列表，加入你要複製的 skills
+# 2. 修改 targets，設定各 IDE 的 skills 目錄位置
+# 3. 將要使用的 target 設為 enabled = true
+# 4. 執行: python link_skills.py
+#
+# Dry-run 模式 (只查看不實際執行):
+#   python link_skills.py --dry-run
+#
+# 使用自訂 config 檔案:
+#   python link_skills.py my_config.toml

@@ -1,4 +1,4 @@
----
+--
 name: committer
 description: Create git commits with concise markdown-formatted commit messages. Use when the user wants to commit changes.
 user-invocable: true
@@ -34,7 +34,8 @@ You are assisting the user in creating git commits based on their specific needs
    git commit -m "$(cat <<'EOF'
    ## Your commit title
 
-   Brief description of the changes.
+   - Brief description of the changes.
+   - ...
 
    Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
    EOF
@@ -61,5 +62,5 @@ You are assisting the user in creating git commits based on their specific needs
 - Implemented JWT-based authentication with refresh tokens.
 - Implemented cookie-based authentication.
 
-Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+Co-Authored-By: [LLM Model Name]
 ```

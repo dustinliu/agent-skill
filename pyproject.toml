@@ -1,0 +1,110 @@
+[project]
+name = "skill-linker"
+version = "0.1.0"
+description = "從 skills 資料庫建立 symbolic links 到各 IDE 的 skills 目錄"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Dustin" }
+]
+dependencies = []
+
+[project.scripts]
+link-skills = "link_skills:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+only-include = ["link_skills.py"]
+
+[dependency-groups]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.14.14",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["."]
+python_files = ["test_*.py"]
+addopts = [
+    "-v",
+    "--cov=.",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+]
+
+[tool.ruff]
+# 目標 Python 版本
+target-version = "py311"
+
+# 每行最大字元數
+line-length = 100
+
+# 要檢查的檔案
+include = ["*.py"]
+exclude = [
+    ".venv",
+    ".git",
+    "__pycache__",
+    "*.pyc",
+]
+
+[tool.ruff.lint]
+# 啟用的規則集
+# F: Pyflakes（基本錯誤檢查）
+# E/W: pycodestyle（程式碼風格）
+# I: isort（import 排序）
+# N: pep8-naming（命名規範）
+# UP: pyupgrade（Python 版本升級建議）
+# B: flake8-bugbear（常見 bug 模式）
+# C4: flake8-comprehensions（list/dict comprehension 優化）
+# SIM: flake8-simplify（簡化建議）
+select = ["F", "E", "W", "I", "N", "UP", "B", "C4", "SIM"]
+
+# 忽略的規則
+ignore = [
+    "E501",  # 行過長（由 formatter 處理）
+]
+
+# 允許自動修復的規則
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.format]
+# 使用雙引號
+quote-style = "double"
+
+# 縮排使用空格
+indent-style = "space"
+
+# 保留 magic trailing comma
+skip-magic-trailing-comma = false
+
+# Unix 風格換行
+line-ending = "auto"
+
+[tool.coverage.run]
+source = ["."]
+omit = [
+    "test_*.py",
+    "*/__pycache__/*",
+    ".venv/*",
+]
+
+[tool.coverage.report]
+# 設定最低 coverage 門檻
+fail_under = 80
+precision = 2
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "def main",
+]
