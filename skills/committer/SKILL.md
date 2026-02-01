@@ -37,7 +37,7 @@ You are assisting the user in creating git commits based on their specific needs
    - Brief description of the changes.
    - ...
 
-   Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+   Co-Authored-By: [LLM Model Name]
    EOF
    )"
    ```
