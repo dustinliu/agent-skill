@@ -1,4 +1,4 @@
---
+---
 name: committer
 description: Create git commits with concise markdown-formatted commit messages. Use when the user wants to commit changes.
 user-invocable: true
