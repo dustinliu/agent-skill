@@ -80,9 +80,14 @@ Key decisions:
 Document the design formally. Use the [EDD template](references/edd-template.md).
 
 Key sections:
-1. Problem & Goals
-2. Proposed Solution (architecture, API, DB)
-3. Open Questions
+- Problem & Goals
+- Technical Design (architecture, API, DB) — authoritative decisions backend engineers must follow
+- Open Questions — undecided items that need further discussion
+
+**Authoritative vs. Flexible:**
+- Technical Design section is the **contract**. Only include finalized decisions.
+- If something is undecided, put it in Open Questions — do not include it in Technical Design.
+- If backend engineers have flexibility on implementation approach, use `> **Suggestion:**` callout to distinguish from authoritative decisions.
 
 Best practices:
 - Keep it concise - readers should understand in < 10 minutes
@@ -92,14 +97,10 @@ Best practices:
 
 ### Mermaid Diagrams
 
-**Must use Mermaid for:**
-- High-Level Architecture (system diagrams, component interactions)
-- Database Schema (erDiagram)
-- Data flow
-
-**Use when complex:**
-- API call sequences (sequence diagram) - when flow involves multiple services
-- Rollout decision flow - when multiple conditional branches exist
+**Must use:**
+- High-Level Architecture — system diagram (flowchart)
+- Database Schema — erDiagram
+- services interactions — sequence diagram (when system involves multiple services)
 
 ## References
 

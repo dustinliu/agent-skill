@@ -5,26 +5,23 @@
 ```markdown
 # EDD: [Feature/System Name]
 
-**Author:** [Name]
-**Status:** Draft | In Review | Approved | Implemented
 **Created:** YYYY-MM-DD
 **Last Updated:** YYYY-MM-DD
-**Reviewers:** [Names]
 ```
 
 ## Required Sections
 
-### 1. Overview
+### Overview
 
-Brief summary (2-3 sentences) of what this document proposes.
+Brief summary (2-3 sentences) of what this document covers.
 
-### 2. Problem Statement
+### Problem Statement
 
 - What problem are we solving?
 - Who is affected?
 - What is the current state?
 
-### 3. Goals and Non-Goals
+### Goals and Non-Goals
 
 **Goals:**
 - Specific, measurable objectives
@@ -34,21 +31,34 @@ Brief summary (2-3 sentences) of what this document proposes.
 - Explicitly out of scope items
 - Prevents scope creep
 
-### 4. Background
+### Background
 
 - Relevant context
 - Prior art or existing solutions
 - Why now?
 
-### 5. Proposed Solution
+### Technical Design
 
-#### 5.1 High-Level Architecture
+Everything in this section is **authoritative** — backend engineers must follow these decisions.
+For areas still under discussion, use the Open Questions section instead of including
+them here. For areas where backend engineers have implementation flexibility, mark them explicitly
+with a `> **Suggestion:**` callout.
 
-- System diagram (Mermaid)
-- Component interactions
-- Data flow
+#### Tech Stack
 
-#### 5.2 API Design
+- Language & framework
+- Database (type & engine)
+- Infrastructure / deployment
+- Architecture pattern (e.g. monolith, microservices)
+- Key libraries or tools (if critical to the design)
+
+#### High-Level Architecture
+
+- System diagram (Mermaid flowchart)
+- Component interactions (Mermaid if complicated)
+- When system involves multiple services, internal or external, include sequence diagram (Mermaid) show the interaction flow
+
+#### API Design
 
 For each endpoint:
 ```
@@ -58,41 +68,42 @@ Response: { field: type }
 Errors:   [400, 401, 404, 500]
 ```
 
-#### 5.3 Database Schema
+#### Database Schema
 
 - Table definitions with types
 - Indexes
 - Relationships (FK)
 - Migration strategy
 
-#### 5.4 Key Technical Decisions
+#### Key Technical Decisions
 
 | Decision | Options Considered | Choice | Rationale |
 |----------|-------------------|--------|-----------|
 | ...      | ...               | ...    | ...       |
 
-### 6. Rollout Plan
-
-- Feature flags
-- Gradual rollout percentage
-- Rollback procedure
-- Monitoring/Alerts
-
-### 7. Security Considerations
+### Security Considerations
 
 - Authentication/Authorization
 - Data encryption
 - Input validation
 - OWASP top 10 review
 
-### 8. Open Questions
+### Open Questions
 
 | Question | Owner | Status | Resolution |
 |----------|-------|--------|------------|
 | ...      | ...   | Open   | ...        |
 
-### 9. References
+### References
 
 - Related documents
 - External resources
 - Prior EDDs
+
+---
+
+## Writing Guidelines
+
+- **Technical Design** is the contract between architect and backend engineer. Only include decisions that are finalized.
+- **Undecided items** belong in Open Questions, not in the Technical Design section.
+- **Flexible items** where the backend engineer may choose the approach: use `> **Suggestion:**` callout inline to distinguish them from authoritative decisions.
