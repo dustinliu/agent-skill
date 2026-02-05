@@ -55,6 +55,7 @@ Single-module Python project using `uv` for dependency management:
 ## Conventions
 
 - Python >=3.11 required (uses `tomllib` from stdlib)
+- all the skills I mentioned to be modified should be in the project root directory `skills/`, not in the ~/.claude/skills/ or .claude/skills/ or ~/.antigravity/skills/ directories.
 - Linting: ruff with rules F, E, W, I, N, UP, B, C4, SIM
 - Formatting: ruff format (double quotes, spaces, unix line endings)
 - Coverage threshold: 85% (configured in `pyproject.toml`)

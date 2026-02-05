@@ -7,26 +7,30 @@
 - **EDD Path:** [path/to/edd.md]
 - **User Story:** [Brief description or link]
 
+## Pre-implementation
+
+- [ ] **0. Project Setup**
+  - Initialize project structure, dependencies, config, DB connection
+  - Files: [Files to create]
+
 ## Implementation Order
 
-Analyze the EDD and determine the optimal implementation sequence. Consider dependencies between components.
+Organize by vertical slice (feature/endpoint). Each task is a complete feature across all layers.
 
-### Tasks
+- [ ] **1. [Feature/Endpoint Name]**
+  - Layers: [e.g., model → repository → service → handler]
+  - Dependencies: [e.g., Task 0]
+  - Acceptance Criteria:
+    - [ ] [Expected behavior 1]
+    - [ ] [Expected behavior 2]
+    - [ ] [Error case 1]
 
-- [ ] **1. [Component Name]**
-  - Description: [What to implement]
-  - Files: [Files to create/modify]
-  - Dependencies: None
-
-- [ ] **2. [Component Name]**
-  - Description: [What to implement]
-  - Files: [Files to create/modify]
-  - Dependencies: Task 1
-
-- [ ] **3. [Component Name]**
-  - Description: [What to implement]
-  - Files: [Files to create/modify]
-  - Dependencies: Task 1, 2
+- [ ] **2. [Feature/Endpoint Name]**
+  - Layers: [affected layers]
+  - Dependencies: [e.g., Task 1]
+  - Acceptance Criteria:
+    - [ ] [Expected behavior 1]
+    - [ ] [Expected behavior 2]
 
 <!-- Add more tasks as needed -->
 
