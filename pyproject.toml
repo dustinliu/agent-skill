@@ -1,12 +1,10 @@
 [project]
-name = "agent forge"
+name = "agent-forge"
 version = "0.1.0"
 description = "從 skills 資料庫建立 symbolic links 到各 IDE 的 skills 目錄"
 readme = "README.md"
 requires-python = ">=3.11"
-authors = [
-    { name = "Dustin" }
-]
+authors = [{ name = "Dustin" }]
 dependencies = []
 
 [project.scripts]
@@ -21,22 +19,12 @@ packages = ["."]
 only-include = ["deploy.py"]
 
 [dependency-groups]
-dev = [
-    "pytest>=7.0.0",
-    "pytest-cov>=4.0.0",
-    "pyyaml>=6.0.3",
-    "ruff>=0.14.14",
-]
+dev = ["pytest>=7.0.0", "pytest-cov>=4.0.0", "pyyaml>=6.0.3", "ruff>=0.14.14"]
 
 [tool.pytest.ini_options]
 testpaths = ["."]
 python_files = ["test_*.py"]
-addopts = [
-    "-v",
-    "--cov=.",
-    "--cov-report=term-missing",
-    "--cov-report=html",
-]
+addopts = ["-v", "--cov=.", "--cov-report=term-missing", "--cov-report=html"]
 
 [tool.ruff]
 # 目標 Python 版本
@@ -47,12 +35,7 @@ line-length = 100
 
 # 要檢查的檔案
 include = ["*.py"]
-exclude = [
-    ".venv",
-    ".git",
-    "__pycache__",
-    "*.pyc",
-]
+exclude = [".venv", ".git", "__pycache__", "*.pyc"]
 
 [tool.ruff.lint]
 # 啟用的規則集
@@ -68,7 +51,7 @@ select = ["F", "E", "W", "I", "N", "UP", "B", "C4", "SIM"]
 
 # 忽略的規則
 ignore = [
-    "E501",  # 行過長（由 formatter 處理）
+    "E501", # 行過長（由 formatter 處理）
 ]
 
 # 允許自動修復的規則
@@ -90,11 +73,7 @@ line-ending = "auto"
 
 [tool.coverage.run]
 source = ["."]
-omit = [
-    "test_*.py",
-    "*/__pycache__/*",
-    ".venv/*",
-]
+omit = ["test_*.py", "*/__pycache__/*", ".venv/*"]
 
 [tool.coverage.report]
 # 設定最低 coverage 門檻
