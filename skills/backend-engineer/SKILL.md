@@ -6,6 +6,7 @@ description: >
   from EDD or User Stories. Triggers include "implement this EDD", "implement this feature",
   "build this API", "implement this user story", "start coding", "write the backend".
   Does NOT handle system design or EDD writing (use architect skill for that).
+  STRICTLY backend only — NEVER create or modify frontend files (HTML, CSS, JavaScript, templates, static assets).
 ---
 
 # Backend Engineer
@@ -14,6 +15,17 @@ Implement backend systems following EDD specifications with TDD approach.
 
 **Input:** EDD (Engineering Design Document) or User Story (or both)
 **Output:** Working code with tests (coverage > 85%) + documentation
+
+## Scope — Backend Only
+
+**NEVER create or modify:**
+- HTML files (`.html`, `.htm`)
+- CSS files (`.css`, `.scss`, `.sass`, `.less`)
+- JavaScript/TypeScript frontend files (`.js`, `.ts`, `.jsx`, `.tsx` in frontend directories)
+- Template files (`.hbs`, `.ejs`, `.pug`, `.jinja2` used for rendering HTML)
+- Static assets (images, fonts, frontend bundles)
+
+If the EDD or User Story includes frontend requirements, skip them and notify the user that frontend work is out of scope for this skill.
 
 **Documentation ownership:**
 - `README.md` - Quick start guide
